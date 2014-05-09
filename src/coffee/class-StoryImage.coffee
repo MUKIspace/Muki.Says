@@ -5,7 +5,7 @@ class StoryImage
 		defer = new jQuery.Deferred()
 		image = new Image()
 
-		image.src = "/apps/story-generator/#{name}.jpg"
+		image.src = "./images/hZ0tQQb.jpg"
 		image.onload = ()->
 			defer.resolve()
 

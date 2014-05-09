@@ -8,7 +8,7 @@ module.exports = (grunt) ->
 
 		copy:
 
-			# images:
+			images:
 				files: [
 					expand: true
 					cwd: "src/"
@@ -32,7 +32,7 @@ module.exports = (grunt) ->
 					join: true
 
 				files:
-					'build/javascripts/app.js': 'src/javascripts/**/*.coffee'
+					'build/javascripts/app.js': 'src/coffee/**/*.coffee'
 
 		sass:
 			main:
@@ -76,25 +76,21 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 
 
+	grunt.registerTask "default", [
+		"build:main"
+		"watch"
+	]
+
+	grunt.registerTask "build:main", [
+		"coffee"
+		"sass"
+		"copy:html"
+		"copy:images"
+	]
+
 	grunt.registerTask "publish", [
 		"build:main"
 		"gh-pages"
 	]
-	grunt.registerTask "default", [
-		"build:main"
-		"build:dev"
-		"watch"
-	]
-	grunt.registerTask "build:main", [
-		"coffee"
-		"sass"
-		"copy:main"
-	]
-	grunt.registerTask "build:dev", ["copy:dev"]
-	grunt.registerTask "copy:main", [
-		"copy:components"
-		"copy:images"
-		"copy:html"
-	]
-	grunt.registerTask "copy:dev", ["copy:jssrc"]
+
 	return

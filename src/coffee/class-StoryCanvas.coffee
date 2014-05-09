@@ -18,7 +18,7 @@ class StoryCanvas
 		# this.render 會有 this 問題，用 => 解決
 		#
 		@img.onReady().then ()=>
-			@.render().addTitle().addMessage().addInfo().output()
+			@.render().addTitle().addMessage().output()
 
 		return @
 
@@ -32,25 +32,17 @@ class StoryCanvas
 		@cxt.font = 'bold 26px Arial'
 		@cxt.textAlign = 'center'
 		@cxt.textBaseline = 'top'
-		@cxt.fillText $('#title').val(), 250, 26
+		@cxt.fillText $('#says-text').val(), 200, 400, 350
 		return @
 
 	addMessage: ()->
 		@cxt.font = 'bold 16px Arial'
 		@cxt.textAlign = 'left'
 		@cxt.textBaseline = 'top'
-		@cxt.fillText $('#msg1').val(), 20, 115, 160
-		@cxt.fillText $('#msg2').val(), 310, 236, 160
-		@cxt.fillText $('#msg3').val(), 20, 404, 160
-		@cxt.fillText $('#msg4').val(), 310, 536, 160
-		return @
-
-	addInfo: ()->
-		@cxt.font = '12px Arial'
-		@cxt.textAlign = 'left'
-		@cxt.textBaseline = 'top'
-		@cxt.fillText 'Fandora 怪獸大暴走', 0, 650
-		@cxt.fillText 'http://shop.fandora.tw/story-generator', 0, 665
+		# @cxt.fillText $('#msg1').val(), 20, 115, 160
+		# @cxt.fillText $('#msg2').val(), 310, 236, 160
+		# @cxt.fillText $('#msg3').val(), 20, 404, 160
+		# @cxt.fillText $('#msg4').val(), 310, 536, 160
 		return @
 
 	output: ()->
