@@ -1,5 +1,5 @@
 (function() {
-  var StoryCanvas, StoryImage;
+  var StoryCanvas, StoryImage, images;
 
   StoryCanvas = (function() {
     function StoryCanvas() {
@@ -10,7 +10,7 @@
       this.img = images[_imgName] || new StoryImage(_imgName);
       this.img.onReady().then((function(_this) {
         return function() {
-          return _this.render().addTitle().addMessage().addInfo().output();
+          return _this.render().addTitle().addMessage().output();
         };
       })(this));
       return this;
@@ -26,7 +26,7 @@
       this.cxt.font = 'bold 26px Arial';
       this.cxt.textAlign = 'center';
       this.cxt.textBaseline = 'top';
-      this.cxt.fillText($('#title').val(), 250, 26);
+      this.cxt.fillText($('#says-text').val(), 200, 400, 350);
       return this;
     };
 
@@ -34,19 +34,6 @@
       this.cxt.font = 'bold 16px Arial';
       this.cxt.textAlign = 'left';
       this.cxt.textBaseline = 'top';
-      this.cxt.fillText($('#msg1').val(), 20, 115, 160);
-      this.cxt.fillText($('#msg2').val(), 310, 236, 160);
-      this.cxt.fillText($('#msg3').val(), 20, 404, 160);
-      this.cxt.fillText($('#msg4').val(), 310, 536, 160);
-      return this;
-    };
-
-    StoryCanvas.prototype.addInfo = function() {
-      this.cxt.font = '12px Arial';
-      this.cxt.textAlign = 'left';
-      this.cxt.textBaseline = 'top';
-      this.cxt.fillText('Fandora 怪獸大暴走', 0, 650);
-      this.cxt.fillText('http://shop.fandora.tw/story-generator', 0, 665);
       return this;
     };
 
@@ -67,7 +54,7 @@
       this.name = name;
       defer = new jQuery.Deferred();
       image = new Image();
-      image.src = "/apps/story-generator/" + name + ".jpg";
+      image.src = "./images/hZ0tQQb.jpg";
       image.onload = function() {
         return defer.resolve();
       };
@@ -80,6 +67,14 @@
     return StoryImage;
 
   })();
+
+  images = {};
+
+  new StoryCanvas();
+
+  $('#says-text').on('change', function() {
+    return new StoryCanvas();
+  });
 
 }).call(this);
 
