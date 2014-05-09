@@ -1,0 +1,16 @@
+{
+  "name": "Muki.Says",
+  "version": "0.0.0",
+  "homepage": "https://github.com/MUKIspace/Muki.Says",
+  "authors": [
+    "Dca <dca35311@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
