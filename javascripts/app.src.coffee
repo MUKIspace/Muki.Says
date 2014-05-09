@@ -35,19 +35,19 @@ class StoryCanvas
 		_gradient.addColorStop 1, '#AAA000'
 		@cxt.fillStyle = _gradient
 
-		@cxt.font = 'bold 26px Arial'
+		@cxt.font = 'bold 36px Helvetica'
 		@cxt.textAlign = 'left'
 		@cxt.textBaseline = 'middle'
-		@cxt.fillText 'Muki Say,', 80, 370, 350
+		@cxt.fillText 'MUKI \nSay:', 80, 370, 350
 		return @
 
 	addMessage: ()->
-		@cxt.fillStyle = '#777'
+		@cxt.fillStyle = '#000'
 
-		@cxt.font = 'bold 24px Arial'
+		@cxt.font = 'bold 24px Helvetica'
 		@cxt.textAlign = 'left'
 		@cxt.textBaseline = 'middle'
-		@cxt.fillText $('#says-text').val(), 130, 425, 400
+		@cxt.fillText $('#says-text').val(), 95, 435, 500
 		# @cxt.fillText $('#msg2').val(), 310, 236, 160
 		# @cxt.fillText $('#msg3').val(), 20, 404, 160
 		# @cxt.fillText $('#msg4').val(), 310, 536, 160

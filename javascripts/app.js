@@ -29,19 +29,19 @@
       _gradient.addColorStop(0.5, '#999');
       _gradient.addColorStop(1, '#AAA000');
       this.cxt.fillStyle = _gradient;
-      this.cxt.font = 'bold 26px Arial';
+      this.cxt.font = 'bold 36px Helvetica';
       this.cxt.textAlign = 'left';
       this.cxt.textBaseline = 'middle';
-      this.cxt.fillText('Muki Say,', 80, 370, 350);
+      this.cxt.fillText('MUKI \nSay:', 80, 370, 350);
       return this;
     };
 
     StoryCanvas.prototype.addMessage = function() {
-      this.cxt.fillStyle = '#777';
-      this.cxt.font = 'bold 24px Arial';
+      this.cxt.fillStyle = '#000';
+      this.cxt.font = 'bold 24px Helvetica';
       this.cxt.textAlign = 'left';
       this.cxt.textBaseline = 'middle';
-      this.cxt.fillText($('#says-text').val(), 130, 425, 400);
+      this.cxt.fillText($('#says-text').val(), 95, 435, 500);
       return this;
     };
 
