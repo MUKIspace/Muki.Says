@@ -29,17 +29,25 @@ class StoryCanvas
 		return @
 
 	addTitle: ()->
+		_gradient = @cxt.createLinearGradient 0, 0, 170, 0
+		_gradient.addColorStop 0, '#777'
+		_gradient.addColorStop 0.5, '#999'
+		_gradient.addColorStop 1, '#AAA000'
+		@cxt.fillStyle = _gradient
+
 		@cxt.font = 'bold 26px Arial'
-		@cxt.textAlign = 'center'
-		@cxt.textBaseline = 'top'
-		@cxt.fillText $('#says-text').val(), 200, 400, 350
+		@cxt.textAlign = 'left'
+		@cxt.textBaseline = 'middle'
+		@cxt.fillText 'Muki Say,', 80, 370, 350
 		return @
 
 	addMessage: ()->
-		@cxt.font = 'bold 16px Arial'
+		@cxt.fillStyle = '#777'
+
+		@cxt.font = 'bold 24px Arial'
 		@cxt.textAlign = 'left'
-		@cxt.textBaseline = 'top'
-		# @cxt.fillText $('#msg1').val(), 20, 115, 160
+		@cxt.textBaseline = 'middle'
+		@cxt.fillText $('#says-text').val(), 130, 425, 400
 		# @cxt.fillText $('#msg2').val(), 310, 236, 160
 		# @cxt.fillText $('#msg3').val(), 20, 404, 160
 		# @cxt.fillText $('#msg4').val(), 310, 536, 160
@@ -68,8 +76,10 @@ class StoryImage
 
 images = {}
 
+
 new StoryCanvas()
 
 
-$('#says-text').on 'change', ()->
+
+$("#says-text").on "change keyup", ->
 	new StoryCanvas()

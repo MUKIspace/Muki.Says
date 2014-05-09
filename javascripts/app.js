@@ -23,17 +23,25 @@
     };
 
     StoryCanvas.prototype.addTitle = function() {
+      var _gradient;
+      _gradient = this.cxt.createLinearGradient(0, 0, 170, 0);
+      _gradient.addColorStop(0, '#777');
+      _gradient.addColorStop(0.5, '#999');
+      _gradient.addColorStop(1, '#AAA000');
+      this.cxt.fillStyle = _gradient;
       this.cxt.font = 'bold 26px Arial';
-      this.cxt.textAlign = 'center';
-      this.cxt.textBaseline = 'top';
-      this.cxt.fillText($('#says-text').val(), 200, 400, 350);
+      this.cxt.textAlign = 'left';
+      this.cxt.textBaseline = 'middle';
+      this.cxt.fillText('Muki Say,', 80, 370, 350);
       return this;
     };
 
     StoryCanvas.prototype.addMessage = function() {
-      this.cxt.font = 'bold 16px Arial';
+      this.cxt.fillStyle = '#777';
+      this.cxt.font = 'bold 24px Arial';
       this.cxt.textAlign = 'left';
-      this.cxt.textBaseline = 'top';
+      this.cxt.textBaseline = 'middle';
+      this.cxt.fillText($('#says-text').val(), 130, 425, 400);
       return this;
     };
 
@@ -72,7 +80,7 @@
 
   new StoryCanvas();
 
-  $('#says-text').on('change', function() {
+  $("#says-text").on("change keyup", function() {
     return new StoryCanvas();
   });
 
